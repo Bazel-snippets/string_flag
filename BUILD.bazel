@@ -1,0 +1,24 @@
+load("string_flag.bzl", "string_list_flag", "multistring_flag")
+load("test.bzl", "dummy_rule", "test_rule")
+
+package(default_visibility = ["//visibility:public"])
+
+
+string_list_flag(
+    name = "string_list_flag",
+    build_setting_default = ["string_list_flag_default"],
+)
+
+multistring_flag(
+    name = "multistring_flag",
+    build_setting_default = "multistring_flag_default",
+)
+
+dummy_rule(
+    name = "dummy",
+)
+
+test_rule(
+    name = "test",
+    deps = "dummy",
+)
